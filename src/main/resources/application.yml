@@ -1,0 +1,38 @@
+server:
+  port: 8091
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: budgetapp
+          uri: "http://localhost:8082"
+          predicates:
+            - Path=/**
+
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${POSTGRES_URL}
+    hikari:
+      schema: budget_tracker
+    username: ${POSTGRES_URL}
+    password: ${POSTGRES_PASSWORD}
+
+logging:
+  level:
+    root: debug
+
+firebaseWebKey: ${FIREBASE_WEB_KEY}
