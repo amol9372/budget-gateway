@@ -17,14 +17,14 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOrigins: "http://localhost:3000, https://budget-tracker-4de96.web.app"
             allowedMethods: "*"
             allowedHeaders: "*"
             allow-credentials: true
 
       routes:
         - id: budgetapp
-          uri: "http://localhost:8082"
+          uri: "http://172.31.17.255:8082"
           predicates:
             - Path=/**
 
