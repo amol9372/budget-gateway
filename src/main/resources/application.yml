@@ -9,14 +9,25 @@ management:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       discovery:
         locator:
           enabled: false
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allow-credentials: true
+
       routes:
         - id: budgetapp
           uri: "http://localhost:8082"
           predicates:
             - Path=/**
+
 
   data:
     jpa:
@@ -28,11 +39,11 @@ spring:
     url: ${POSTGRES_URL}
     hikari:
       schema: budget_tracker
-    username: ${POSTGRES_URL}
+    username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
 
 logging:
   level:
-    root: debug
+    root: trace
 
 firebaseWebKey: ${FIREBASE_WEB_KEY}

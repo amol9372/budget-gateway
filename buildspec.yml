@@ -1,0 +1,46 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USER: "/CodeBuild/applications/expense-tracker-app/docker/user"
+    DOCKER_PASSWORD: "/CodeBuild/applications/expense-tracker-app/docker/password"
+
+phases:
+#  install:
+#    runtime-versions:
+#      docker: 18
+#    commands:
+#      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
+#      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR....
+      - aws --version
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 667631227859.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Running maven package
+      - mvn clean install -Dmaven.test.skip
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - docker build -t gateway:latest .
+      - docker tag gateway:latest 667631227859.dkr.ecr.us-east-1.amazonaws.com/gateway:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 667631227859.dkr.ecr.us-east-1.amazonaws.com/gateway:latest
+cache:
+  paths:
+    - '/root/.m2/**/*'
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/kill_container.sh
+    - scripts/load_image.sh
+    - scripts/start_container.sh
+    - scripts/delete_previous_version.sh
+#    - docker_build/tasker.tar.gz
+  discard-paths : yes
+  # base-directory : docker_build

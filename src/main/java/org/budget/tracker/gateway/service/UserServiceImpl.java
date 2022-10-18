@@ -61,8 +61,7 @@ public class UserServiceImpl implements UserService {
     }
 
     AuthenticateUserResponse successResponse =
-        successResponse =
-            new ObjectMapper().convertValue(response.getBody(), AuthenticateUserResponse.class);
+        new ObjectMapper().convertValue(response.getBody(), AuthenticateUserResponse.class);
 
     JUser juser = usersJpaRepository.findByEmail(request.getEmail()).orElseThrow(UserNotFound::new);
     successResponse.setUserId(juser.getId());

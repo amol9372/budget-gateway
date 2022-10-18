@@ -29,6 +29,7 @@ public class AuthenticationFilter implements GlobalFilter {
 
             // test authentication here
 
+
             // use redis to check if user is logged-in & session exists
 
             this.populateRequestWithHeaders(exchange);
