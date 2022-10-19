@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000, https://budget-tracker-4de96.web.app", allowedHeaders = "*", allowCredentials = "true")
 public class UserController {
 
   @Autowired UserService userService;
