@@ -17,7 +17,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000, https://budget-tracker-4de96.web.app"
+            allowedOrigins: "https://budget-tracker-4de96.web.app"
             allowedMethods: "*"
             allowedHeaders: "*"
             allow-credentials: true
