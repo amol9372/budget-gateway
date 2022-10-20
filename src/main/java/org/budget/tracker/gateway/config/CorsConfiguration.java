@@ -19,6 +19,7 @@ public class CorsConfiguration extends org.springframework.web.cors.CorsConfigur
         //corsConfiguration.addAllowedOrigin("https://budget-tracker-4de96.firebaseapp.com");
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
         corsConfiguration.addAllowedHeader("origin");
+        corsConfiguration.addAllowedHeader("x-requested-with");
         corsConfiguration.addAllowedHeader("content-type");
         corsConfiguration.addAllowedHeader("accept");
         corsConfiguration.addAllowedHeader("authorization");
