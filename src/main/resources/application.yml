@@ -14,13 +14,13 @@ spring:
       discovery:
         locator:
           enabled: false
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: "https://budget-tracker-4de96.web.app"
-            allowedMethods: "*"
-            allowedHeaders: "*"
-            allow-credentials: true
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "https://budget-tracker-4de96.web.app"
+#            allowedMethods: "*"
+#            allowedHeaders: "*"
+#            allow-credentials: true
 
       routes:
         - id: budgetapp
