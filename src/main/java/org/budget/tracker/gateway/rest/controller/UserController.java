@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = {"https://budget-tracker-4de96.web.app"}, allowedHeaders = "*", allowCredentials = "true")
+// @CrossOrigin(origins = "https://budget-tracker-4de96.web.app", allowedHeaders = "*", allowCredentials = "true")
 public class UserController {
 
   @Autowired UserService userService;
