@@ -5,10 +5,7 @@ import org.budget.tracker.gateway.rest.controller.request.CreateUserRequest;
 import org.budget.tracker.gateway.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = {"https://budget-tracker-4de96.web.app"}, allowedHeaders = "*", allowCredentials = "true")
@@ -24,5 +21,10 @@ public class UserController {
   @PostMapping("create-user")
   ResponseEntity<Object> createUser(@RequestBody CreateUserRequest request) {
     return userService.createUser(request);
+  }
+
+  @GetMapping("health-check")
+  public String healthCheck() {
+    return "Gateway is running !!!";
   }
 }
