@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
             .setDisplayName(request.getFirstName())
             .setDisabled(false);
 
-    UserRecord userRecord = null;
+    UserRecord userRecord;
     try {
       userRecord = FirebaseAuth.getInstance().createUser(createRequest);
     } catch (FirebaseAuthException e) {

@@ -26,8 +26,11 @@ spring:
         - id: budgetapp
           uri: "http://172.31.17.255:8082"
           predicates:
-            - Path=/**
-
+            - Path=/budget/**, /category-budget/**
+        - id: expenseapp
+          uri: "http://172.31.17.255:8082"
+          predicates:
+            - Path=/expense/**
 
   data:
     jpa:
