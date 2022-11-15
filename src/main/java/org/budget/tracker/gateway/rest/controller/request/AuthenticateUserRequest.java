@@ -6,6 +6,8 @@ public class AuthenticateUserRequest {
     private String password;
     private String mobile;
 
+    private boolean returnSecureToken = true;
+
     public String getEmail() {
         return email;
     }
@@ -28,5 +30,13 @@ public class AuthenticateUserRequest {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    public boolean isReturnSecureToken() {
+        return returnSecureToken;
+    }
+
+    public void setReturnSecureToken(boolean returnSecureToken) {
+        this.returnSecureToken = returnSecureToken;
     }
 }

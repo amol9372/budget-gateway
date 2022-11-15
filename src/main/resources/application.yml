@@ -50,3 +50,8 @@ logging:
     root: trace
 
 firebaseWebKey: ${FIREBASE_WEB_KEY}
+
+redisHost: ${REDIS_HOST}
+redisPort: ${REDIS_PORT}
+redisUser: ${REDIS_USER}
+redisPassword: ${REDIS_PASSWORD}

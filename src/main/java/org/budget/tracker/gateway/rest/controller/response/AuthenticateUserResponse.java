@@ -10,6 +10,10 @@ public class AuthenticateUserResponse extends BaseResponse {
   private String idToken;
   private Boolean registered;
 
+  private String refreshToken;
+
+  private String expiresIn;
+
   public String getKind() {
     return kind;
   }
@@ -64,5 +68,21 @@ public class AuthenticateUserResponse extends BaseResponse {
 
   public void setRegistered(Boolean registered) {
     this.registered = registered;
+  }
+
+  public String getRefreshToken() {
+    return refreshToken;
+  }
+
+  public void setRefreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+  }
+
+  public String getExpiresIn() {
+    return expiresIn;
+  }
+
+  public void setExpiresIn(String expiresIn) {
+    this.expiresIn = expiresIn;
   }
 }
