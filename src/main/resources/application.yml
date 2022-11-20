@@ -24,11 +24,11 @@ spring:
 
       routes:
         - id: budgetapp
-          uri: "http://172.31.17.255:8082"
+          uri: "http://localhost:8082"
           predicates:
             - Path=/budget/**, /category-budget/**
         - id: expenseapp
-          uri: "http://172.31.17.255:8083"
+          uri: "http://localhost:8083"
           predicates:
             - Path=/expense/**
 
