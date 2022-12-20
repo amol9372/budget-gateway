@@ -55,6 +55,12 @@ public class AuthenticationFilter implements GlobalFilter {
           // check for url, if "/refresh-token" -> allow it
           // return chain.filter(exchange);
         }
+
+        if(errorCode.equals("INVALID_ID_TOKEN")){
+          return this.onError(exchange, Constants.AUTH_HEADER_INVALID);
+          // check for url, if "/refresh-token" -> allow it
+          // return chain.filter(exchange);
+        }
       }
 
       this.populateRequestWithHeaders(exchange);
@@ -71,6 +77,7 @@ public class AuthenticationFilter implements GlobalFilter {
 
   private String getAuthHeader(ServerHttpRequest request) {
     return request.getHeaders().getOrEmpty("Authorization").get(0);
+    // return request.getHeaders().getOrEmpty("Authorization").get(0).split(" ")[1];
   }
 
   private boolean isAuthMissing(ServerHttpRequest request) {
