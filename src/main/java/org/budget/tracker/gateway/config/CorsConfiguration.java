@@ -15,8 +15,8 @@ public class CorsConfiguration extends org.springframework.web.cors.CorsConfigur
         org.springframework.web.cors.CorsConfiguration corsConfiguration = new org.springframework.web.cors.CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.addAllowedOrigin("http://localhost:3000");
-        corsConfiguration.addAllowedOrigin("https://budget-tracker-4de96.web.app");
-        //corsConfiguration.addAllowedOrigin("https://budget-tracker-4de96.firebaseapp.com");
+        corsConfiguration.addAllowedOrigin("https://dev-budget-tracker.web.app");
+        corsConfiguration.addAllowedOrigin("https://prod-budget-tracker.web.app");
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
         corsConfiguration.addAllowedHeader("origin");
         corsConfiguration.addAllowedHeader("x-requested-with");
